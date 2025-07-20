@@ -50,12 +50,12 @@ Once the environment is ready on both virtual machines, follow these steps:
 
 ```bash
 # Start the vulnerable aioquic server
-python3 examples/http3_server.py --certificate tests/ssl_cert.pem --private-key tests/ssl_key.pem
+python3 scripts/http3_server.py --certificate certs/ssl_cert.pem --private-key certs/ssl_key.pem
 ```
 
 ### 🖥️ On VM2 (Client)
 
 ```bash
 # Start the aioquic client attacker
-python3 examples/http3_client.py
+python3 scripts/exploit.py
 ```
