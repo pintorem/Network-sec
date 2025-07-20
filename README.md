@@ -1,10 +1,10 @@
 <div align="center">
 
- <h1> PoC quic vulnerability 🌐</h1>
+ <h1>PoC QUIC Vulnerability</h1>
 
-<em>This project demostrates how a Denial-of-Service (DoS) attack can be caused by a flaw in the <code>aioquic</code> QUIC implementation. By taking advantage of how CRYPTO frames are handled, a malevolent client can cause unmanaged memory allocation and ultimately bring down the server.</em>
+<em>This project demostrates how a Denial-of-Service (DoS) attack can be caused by a flaw in the <code>aioquic</code> QUIC implementation. Exploiting the way CRYPTO frames are handled, a malicious client can trigger unmanaged memory allocation, ultimately causing the server to crash.</em>
 
-<img src="Attack Diagram.png" alt="Attack Diagram" border="0" width="80%">
+<img src="/imgs/Attack Diagram.png" alt="Attack Diagram" border="0" width="80%">
 
 </div>
 
@@ -30,15 +30,15 @@ One VM will act as the **server**, the other as the **attacker client**.
 
 ```bash
 # Clone the repository
-$ git clone https://github.com/pintorem/Network-sec.git
-$ cd Network-sec
+git clone https://github.com/pintorem/Network-sec.git
+cd Network-sec
 
 # (Optional) Create a conda environment
-$ conda create -n quic-vuln python=3.10 -y
-$ conda activate quic-vuln
+conda create -n quic-vuln python=3.10 -y
+conda activate quic-vuln
 
 # Install dependencies
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 
@@ -50,12 +50,12 @@ Once the environment is ready on both virtual machines, follow these steps:
 
 ```bash
 # Start the vulnerable aioquic server
-$ python3 examples/http3_server.py --certificate tests/ssl_cert.pem --private-key tests/ssl_key.pem
+python3 examples/http3_server.py --certificate tests/ssl_cert.pem --private-key tests/ssl_key.pem
 ```
 
 ### 🖥️ On VM2 (Client)
 
 ```bash
 # Start the aioquic client attacker
-$ python3 examples/http3_client.py
+python3 examples/http3_client.py
 ```
