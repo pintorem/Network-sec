@@ -504,13 +504,6 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="QUIC server")
     parser.add_argument(
-        "app",
-        type=str,
-        nargs="?",
-        default="demo:app",
-        help="the ASGI application as <module>:<attribute>",
-    )
-    parser.add_argument(
         "-c",
         "--certificate",
         type=str,
@@ -573,11 +566,6 @@ if __name__ == "__main__":
         format="%(asctime)s %(levelname)s %(name)s %(message)s",
         level=logging.DEBUG if args.verbose else logging.INFO,
     )
-
-    # import ASGI application
-    module_str, attr_str = args.app.split(":", maxsplit=1)
-    module = importlib.import_module(module_str)
-    application = getattr(module, attr_str)
 
     # create QUIC logger
     if args.quic_log:
