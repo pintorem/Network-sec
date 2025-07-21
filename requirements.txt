@@ -1,0 +1,1 @@
+git+https://github.com/aiortc/aioquic.git@072eb4b#egg=aioquic
